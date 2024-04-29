@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "975930504760",
+    "project_id": "wondershare-73bb9",
+    "storage_bucket": "wondershare-73bb9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975930504760:android:9387b87175b7d1fbe418cd",
+        "android_client_info": {
+          "package_name": "com.example.wondershare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmfu5lb2yfw7fSctlgfhYFSpOrx8B8EIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
