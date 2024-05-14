@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wondershare/screens/add_post_screen.dart';
 import 'package:wondershare/screens/feed_screen.dart';
+import 'package:wondershare/screens/jobs_screen.dart';
 import 'package:wondershare/screens/profile_screen.dart';
 import 'package:wondershare/screens/search_screen.dart';
 // import 'package:wondershare/screens/feed_screen.dart';
@@ -15,6 +16,7 @@ List<Widget> homeScreenItems = [
   const FeedScreen(),
   const SearchScreen(),
   AddPostScreen(),
-  Text('notifications'),
+  const JobOpportunitiesPage(),
+  // Text('notifications'),
   ProfileScreen(uid: FirebaseAuth.instance.currentUser!.uid,),
 ];

@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wondershare/resources/auth_methods.dart';
 import "package:wondershare/utils/colors.dart";
 import "package:wondershare/utils/global_variable.dart";
@@ -68,6 +68,12 @@ class _LoginScreenState extends State<LoginScreen> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg.jpg"),
+              fit: BoxFit.cover, // Covers the whole area of the container
+            ),
+          ),
           padding: MediaQuery.of(context).size.width > webScreenSize
               ? EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width / 3)
@@ -80,11 +86,28 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: 2,
                 child: Container(),
               ),
-              SvgPicture.asset(
-                'assets/ic_instagram.svg',
-                color: primaryColor,
-                height: 64,
+              
+          //     Image.asset(
+          //   'assets/logo.png',
+          //   height: 64,
+          // ),
+              
+              // SvgPicture.asset(
+              //   'assets/ic_instagram.svg',
+              //   color: primaryColor,
+              //   height: 64,
+              // ),
+
+              Text(
+            'Wondershare',
+            style: TextStyle(
+              fontFamily: 'Algerian', // Specify the font family
+              fontSize: 42,
+              fontWeight: FontWeight.bold,
+              color: clickclr,
+            ),
               ),
+              
               const SizedBox(
                 height: 64,
               ),

@@ -2,13 +2,14 @@ import 'dart:typed_data';
 
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wondershare/resources/auth_methods.dart';
 import 'package:image_picker/image_picker.dart';
 import "package:wondershare/utils/colors.dart";
 import 'package:wondershare/responsive/mobile_screen_layout.dart';
 import 'package:wondershare/responsive/responsive_layout.dart';
 import "package:wondershare/responsive/web_screen_layout.dart";
+import 'package:wondershare/utils/global_variable.dart';
 import 'package:wondershare/utils/utils.dart';
 import 'package:wondershare/widgets/text_field_input.dart';
 import 'package:wondershare/screens/login_screen.dart';
@@ -94,7 +95,18 @@ class _SignupScreenState extends State<SignupScreen> {
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
+           decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg.jpg"),
+              fit: BoxFit.cover, // Covers the whole area of the container
+            ),
+          ),
+          padding: MediaQuery.of(context).size.width > webScreenSize
+              ? EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width / 3)
+              : const EdgeInsets.symmetric(horizontal: 32),
+          // padding: const EdgeInsets.symmetric(horizontal: 32),
+          
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,10 +116,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 flex: 2,
                 child: Container(),
               ),
-              SvgPicture.asset(
-                'assets/ic_instagram.svg',
-                color: primaryColor,
-                height: 64,
+              const Text(
+                  'Wondershare',
+                  style: TextStyle(
+                  fontFamily: 'Algerian', // Specify the font family
+                  fontSize: 42,
+                  fontWeight: FontWeight.bold,
+                  color: clickclr,
+                  ),
               ),
               const SizedBox(
                 height: 12,

@@ -50,11 +50,14 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: appbarclr,
         title: const Text(
           'Comments',
+          style: TextStyle(color:clickclr)
+          
         ),
         centerTitle: false,
+        
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
@@ -96,9 +99,16 @@ class _CommentsScreenState extends State<CommentsScreen> {
                   padding: const EdgeInsets.only(left: 16, right: 8),
                   child: TextField(
                     controller: commentEditingController,
+                     style: const TextStyle(
+    color: Colors.black, // Specify the color you want for the text entered by the user
+  ),
                     decoration: InputDecoration(
                       hintText: 'Comment as ${user.username}',
                       border: InputBorder.none,
+                      hintStyle: const TextStyle(
+                      color: appbarclr,  // Specify the color you want for the hint text
+                      ),
+                      
                     ),
                   ),
                 ),
@@ -114,7 +124,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   child: const Text(
                     'Post',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: Color.fromARGB(255, 27, 81, 126)),
                   ),
                 ),
               )
