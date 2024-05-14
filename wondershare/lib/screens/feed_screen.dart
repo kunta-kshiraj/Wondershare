@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wondershare/utils/colors.dart';
 import 'package:wondershare/utils/global_variable.dart';
 import 'package:wondershare/widgets/post_card.dart';
@@ -23,22 +23,25 @@ class _FeedScreenState extends State<FeedScreen> {
       appBar: width > webScreenSize
           ? null
           : AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: appbarclr,
               centerTitle: false,
-              title: SvgPicture.asset(
-                'assets/ic_instagram.svg',
-                color: primaryColor,
-                height: 32,
-              ),
-              actions: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.messenger_outline,
-                    color: primaryColor,
-                  ),
-                  onPressed: () {},
-                ),
-              ],
+              title: const Text(
+            'Wondershare',
+            style: TextStyle(
+              fontFamily: 'Algerian', // Specify the font family
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: clickclr,
+            ),),
+              // actions: [
+              //   IconButton(
+              //     icon: const Icon(
+              //       Icons.messenger_outline,
+              //       color: primaryColor,
+              //     ),
+              //     onPressed: () {},
+              //   ),
+              // ],
             ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('posts').snapshots(),

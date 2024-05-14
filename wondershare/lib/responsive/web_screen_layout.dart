@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wondershare/utils/colors.dart';
 import 'package:wondershare/utils/global_variable.dart';
 
@@ -44,46 +44,49 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor:appbarclr,
         centerTitle: false,
-        title: SvgPicture.asset(
-          'assets/ic_instagram.svg',
-          color: primaryColor,
-          height: 32,
-        ),
+        title: const Text(
+            'Wondershare',
+            style: TextStyle(
+              fontFamily: 'Algerian', // Specify the font family
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              color: clickclr,
+            ),),
         actions: [
           IconButton(
             icon: Icon(
               Icons.home,
-              color: _page == 0 ? primaryColor : secondaryColor,
+              color: _page == 0 ? mobileBackgroundColor : secondaryColor,
             ),
             onPressed: () => navigationTapped(0),
           ),
           IconButton(
             icon: Icon(
               Icons.search,
-              color: _page == 1 ? primaryColor : secondaryColor,
+              color: _page == 1 ? mobileBackgroundColor : secondaryColor,
             ),
             onPressed: () => navigationTapped(1),
           ),
           IconButton(
             icon: Icon(
               Icons.add_a_photo,
-              color: _page == 2 ? primaryColor : secondaryColor,
+              color: _page == 2 ? mobileBackgroundColor : secondaryColor,
             ),
             onPressed: () => navigationTapped(2),
           ),
           IconButton(
             icon: Icon(
-              Icons.favorite,
-              color: _page == 3 ? primaryColor : secondaryColor,
+              Icons.business_center,
+              color: _page == 3 ? mobileBackgroundColor : secondaryColor,
             ),
             onPressed: () => navigationTapped(3),
           ),
           IconButton(
             icon: Icon(
               Icons.person,
-              color: _page == 4 ? primaryColor : secondaryColor,
+              color: _page == 4 ? mobileBackgroundColor : secondaryColor,
             ),
             onPressed: () => navigationTapped(4),
           ),

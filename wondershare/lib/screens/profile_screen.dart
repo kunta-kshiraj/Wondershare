@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wondershare/resources/auth_methods.dart';
 import 'package:wondershare/resources/firestore_methods.dart';
 import 'package:wondershare/screens/login_screen.dart';
@@ -77,7 +80,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               backgroundColor: mobileBackgroundColor,
               title: Text(
                 userData['username'],
-              ),
+                 style: TextStyle(color: primaryColor ,
+                 fontWeight: FontWeight.bold)
+                ),
               centerTitle: false,
             ),
             body: ListView(
@@ -89,11 +94,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundColor: Colors.grey,
+                            backgroundColor: secondaryColor,
                             backgroundImage: NetworkImage(
                               userData['photoUrl'],
                             ),
                             radius: 40,
+                            
                           ),
                           Expanded(
                             flex: 1,
@@ -118,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         ? FollowButton(
                                             text: 'Sign Out',
                                             backgroundColor:
-                                                mobileBackgroundColor,
+                                                appbarclr,
                                             textColor: primaryColor,
                                             borderColor: Colors.grey,
                                             function: () async {
@@ -189,6 +195,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           userData['username'],
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: primaryColor
                           ),
                         ),
                       ),
@@ -199,6 +206,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         child: Text(
                           userData['bio'],
+                          style: const TextStyle(
+    color: primaryColor,    // Color of the text  // Make the text bold
+  ),
                         ),
                       ),
                     ],
@@ -256,6 +266,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
+            color:primaryColor,
           ),
         ),
         Container(
@@ -265,7 +276,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w400,
-              color: Colors.grey,
+              color: primaryColor,
             ),
           ),
         ),

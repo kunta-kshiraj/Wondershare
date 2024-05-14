@@ -24,8 +24,13 @@ class _SearchScreenState extends State<SearchScreen> {
         title: Form(
           child: TextFormField(
             controller: searchController,
+            style: const TextStyle(
+    color: appbarclr, // Specify the color you want for the text entered by the user
+  ),
             decoration:
-                const InputDecoration(labelText: 'Search for a user...'),
+                const InputDecoration(labelText: 'Search for a user...',labelStyle: TextStyle(
+      color: Colors.black, // You can also specify color for the label text
+    ),),
             onFieldSubmitted: (String _) {
               setState(() {
                 isShowUsers = true;
@@ -69,6 +74,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         title: Text(
                           (snapshot.data! as dynamic).docs[index]['username'],
+                          style: TextStyle(color: Colors.black),
                         ),
                       ),
                     );

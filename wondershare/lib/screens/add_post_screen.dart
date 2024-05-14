@@ -7,7 +7,7 @@ import 'package:wondershare/resources/firestore_methods.dart';
 import 'package:wondershare/utils/colors.dart';
 import 'package:wondershare/utils/utils.dart';
 import 'package:provider/provider.dart';
-import 'package:wondershare/models/user.dart';
+// import 'package:wondershare/models/user.dart';
 
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({Key? key}) : super(key: key);
@@ -126,22 +126,37 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
     return _file == null
         ? Center(
-            child: IconButton(
-              icon: const Icon(
-                Icons.upload,
+  child: Column(
+    mainAxisSize: MainAxisSize.min, // Ensures the column only takes up needed space
+    mainAxisAlignment: MainAxisAlignment.center, // Centers the column content vertically
+    children: <Widget>[
+      IconButton(
+        icon: const Icon(
+          Icons.upload,
+          color: appbarclr, // Ensure appbarclr is defined or replace with Colors.blue, for example
+        ),
+        onPressed: () => _selectImage(context),
+      ),
+           const Text(
+                'Click above to post',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.black, // Adjust the color as needed
+                ),
               ),
-              onPressed: () => _selectImage(context),
-            ),
-          )
+            ],
+          ),
+        )
         : Scaffold(
             appBar: AppBar(
               backgroundColor: mobileBackgroundColor,
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back,color:appbarclr),
                 onPressed: clearImage,
               ),
               title: const Text(
                 'Post to',
+                style: TextStyle(color: appbarclr)
               ),
               centerTitle: false,
               actions: <Widget>[
@@ -168,7 +183,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     ? const LinearProgressIndicator()
                     : const Padding(padding: EdgeInsets.only(top: 0.0)),
                 const Divider(),
-                Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -183,13 +198,15 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         controller: _descriptionController,
                         decoration: const InputDecoration(
                             hintText: "Write a caption...",
-                            border: InputBorder.none),
+                            hintStyle: TextStyle(color: appbarclr),
+                            border: InputBorder.none,
+                            ),
                         maxLines: 8,
                       ),
                     ),
                     SizedBox(
-                      height: 45.0,
-                      width: 45.0,
+                      height: 100.0,
+                      width: 100.0,
                       child: AspectRatio(
                         aspectRatio: 487 / 451,
                         child: Container(
@@ -219,19 +236,3 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
 
 
-// if (res == "success") {
-//         setState(() {
-//           isLoading = false;
-//         });
-//         if (context.mounted) {
-//           showSnackBar(
-//             context,
-//             'Posted!',
-//           );
-//         }
-//         clearImage();
-//       } else {
-//         if (context.mounted) {
-//           showSnackBar(context, res);
-//         }
-//       }
