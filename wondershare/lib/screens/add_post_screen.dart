@@ -202,6 +202,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             border: InputBorder.none,
                             ),
                         maxLines: 8,
+                        style: TextStyle(color: primaryColor),
                       ),
                     ),
                     SizedBox(
