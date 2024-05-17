@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wondershare/resources/auth_methods.dart';
 import 'package:image_picker/image_picker.dart';
 import "package:wondershare/utils/colors.dart";
@@ -38,32 +37,26 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   void signUpUser() async {
-    // set loading to true
     setState(() {
       _isLoading = true;
     });
 
-    // signup user using our authmethodds
     String res = await AuthMethods().signUpUser(
-        email: _emailController.text,
-        password: _passwordController.text,
-        username: _usernameController.text,
-        bio: _bioController.text,
-        file: _image!,
-      );
+      email: _emailController.text,
+      password: _passwordController.text,
+      username: _usernameController.text,
+      bio: _bioController.text,
+      file: _image!,
+    );
 
-      
-    // if string returned is sucess, user has been created
     if (res == "success") {
       setState(() {
         _isLoading = false;
       });
-      // navigate to the home screen
       if (context.mounted) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const 
-            ResponsiveLayout(
+            builder: (context) => const ResponsiveLayout(
               mobileScreenLayout: MobileScreenLayout(),
               webScreenLayout: WebScreenLayout(),
             ),
@@ -74,7 +67,6 @@ class _SignupScreenState extends State<SignupScreen> {
       setState(() {
         _isLoading = false;
       });
-      // show the error
       if (context.mounted) {
         showSnackBar(context, res);
       }
@@ -83,7 +75,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
   selectImage() async {
     Uint8List im = await pickImage(ImageSource.gallery);
-    // set state because we need to display the image we selected on the circle avatar
     setState(() {
       _image = im;
     });
@@ -95,35 +86,32 @@ class _SignupScreenState extends State<SignupScreen> {
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Container(
-           decoration: BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/bg.jpg"),
-              fit: BoxFit.cover, // Covers the whole area of the container
+              fit: BoxFit.cover,
             ),
           ),
           padding: MediaQuery.of(context).size.width > webScreenSize
               ? EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width / 3)
               : const EdgeInsets.symmetric(horizontal: 32),
-          // padding: const EdgeInsets.symmetric(horizontal: 32),
-          
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              
               Flexible(
                 flex: 2,
                 child: Container(),
               ),
               const Text(
-                  'Wondershare',
-                  style: TextStyle(
-                  fontFamily: 'Algerian', // Specify the font family
+                'Wondershare',
+                style: TextStyle(
+                  fontFamily: 'Algerian',
                   fontSize: 42,
                   fontWeight: FontWeight.bold,
                   color: clickclr,
-                  ),
+                ),
               ),
               const SizedBox(
                 height: 12,

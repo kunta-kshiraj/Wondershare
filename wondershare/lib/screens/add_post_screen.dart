@@ -7,7 +7,6 @@ import 'package:wondershare/resources/firestore_methods.dart';
 import 'package:wondershare/utils/colors.dart';
 import 'package:wondershare/utils/utils.dart';
 import 'package:provider/provider.dart';
-// import 'package:wondershare/models/user.dart';
 
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({Key? key}) : super(key: key);
@@ -60,14 +59,12 @@ class _AddPostScreenState extends State<AddPostScreen> {
       },
     );
   }
-  
+
   void postImage(String uid, String username, String profImage) async {
     setState(() {
       isLoading = true;
     });
-    // start the loading
     try {
-      // upload to storage and db
       String res = await FireStoreMethods().uploadPost(
         _descriptionController.text,
         _file!,
@@ -79,27 +76,18 @@ class _AddPostScreenState extends State<AddPostScreen> {
         setState(() {
           isLoading = false;
         });
-        // if (context.mounted) {
-          showSnackBar(
-            context,
-            'Posted!',
-          );
-          clearImage();
-        }
-        
-      else {
-        // if (context.mounted) {
-          setState(() {
+        showSnackBar(
+          context,
+          'Posted!',
+        );
+        clearImage();
+      } else {
+        setState(() {
           isLoading = false;
         });
-          showSnackBar(context, res);
-        }
+        showSnackBar(context, res);
       }
-    
-     catch (err) {
-      // setState(() {
-      //   isLoading = false;
-      // });
+    } catch (err) {
       showSnackBar(
         context,
         err.toString(),
@@ -118,7 +106,6 @@ class _AddPostScreenState extends State<AddPostScreen> {
     super.dispose();
     _descriptionController.dispose();
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -126,38 +113,38 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
     return _file == null
         ? Center(
-  child: Column(
-    mainAxisSize: MainAxisSize.min, // Ensures the column only takes up needed space
-    mainAxisAlignment: MainAxisAlignment.center, // Centers the column content vertically
-    children: <Widget>[
-      IconButton(
-        icon: const Icon(
-          Icons.upload,
-          color: appbarclr, // Ensure appbarclr is defined or replace with Colors.blue, for example
-        ),
-        onPressed: () => _selectImage(context),
-      ),
-           const Text(
-                'Click above to post',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.black, // Adjust the color as needed
+            child: Column(
+              mainAxisSize: MainAxisSize
+                  .min, // Ensures the column only takes up needed space
+              mainAxisAlignment: MainAxisAlignment
+                  .center, // Centers the column content vertically
+              children: <Widget>[
+                IconButton(
+                  icon: const Icon(
+                    Icons.upload,
+                    color:
+                        appbarclr, // Ensure appbarclr is defined or replace with Colors.blue, for example
+                  ),
+                  onPressed: () => _selectImage(context),
                 ),
-              ),
-            ],
-          ),
-        )
+                const Text(
+                  'Click above to post',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black, // Adjust the color as needed
+                  ),
+                ),
+              ],
+            ),
+          )
         : Scaffold(
             appBar: AppBar(
               backgroundColor: mobileBackgroundColor,
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back,color:appbarclr),
+                icon: const Icon(Icons.arrow_back, color: appbarclr),
                 onPressed: clearImage,
               ),
-              title: const Text(
-                'Post to',
-                style: TextStyle(color: appbarclr)
-              ),
+              title: const Text('Post to', style: TextStyle(color: appbarclr)),
               centerTitle: false,
               actions: <Widget>[
                 TextButton(
@@ -197,10 +184,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
                       child: TextField(
                         controller: _descriptionController,
                         decoration: const InputDecoration(
-                            hintText: "Write a caption...",
-                            hintStyle: TextStyle(color: appbarclr),
-                            border: InputBorder.none,
-                            ),
+                          hintText: "Write a caption...",
+                          hintStyle: TextStyle(color: appbarclr),
+                          border: InputBorder.none,
+                        ),
                         maxLines: 8,
                         style: TextStyle(color: primaryColor),
                       ),
@@ -227,13 +214,4 @@ class _AddPostScreenState extends State<AddPostScreen> {
             ),
           );
   }
-  
-
 }
-
-
-
-
-
-
-

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wondershare/resources/auth_methods.dart';
 import "package:wondershare/utils/colors.dart";
 import "package:wondershare/utils/global_variable.dart";
@@ -70,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/bg.jpg"),
-              fit: BoxFit.cover, // Covers the whole area of the container
+              fit: BoxFit.cover,
             ),
           ),
           padding: MediaQuery.of(context).size.width > webScreenSize
@@ -88,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Text(
                 'Wondershare',
                 style: TextStyle(
-                  fontFamily: 'Algerian', // Specify the font family
+                  fontFamily: 'Algerian',
                   fontSize: 48,
                   fontWeight: FontWeight.bold,
                   color: primaryColor,
@@ -154,9 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder
-
-: (context) => const SignupScreen(),
+                        builder: (context) => const SignupScreen(),
                       ),
                     ),
                     child: Container(
@@ -178,4 +175,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-

@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wondershare/resources/auth_methods.dart';
 import "package:wondershare/utils/colors.dart";
 import "package:wondershare/utils/global_variable.dart";
@@ -10,7 +9,6 @@ import 'package:wondershare/responsive/web_screen_layout.dart';
 import 'package:wondershare/utils/utils.dart';
 import 'package:wondershare/widgets/text_field_input.dart';
 import 'package:wondershare/screens/signup_screen.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -71,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/bg.jpg"),
-              fit: BoxFit.cover, // Covers the whole area of the container
+              fit: BoxFit.cover,
             ),
           ),
           padding: MediaQuery.of(context).size.width > webScreenSize
@@ -86,32 +84,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: 2,
                 child: Container(),
               ),
-              
-          //     Image.asset(
-          //   'assets/logo.png',
-          //   height: 64,
-          // ),
-              
-              // SvgPicture.asset(
-              //   'assets/ic_instagram.svg',
-              //   color: primaryColor,
-              //   height: 64,
-              // ),
-
               Text(
-            'Wondershare',
-            style: TextStyle(
-              fontFamily: 'Algerian', // Specify the font family
-              fontSize: 42,
-              fontWeight: FontWeight.bold,
-              color: clickclr,
-            ),
+                'Wondershare',
+                style: TextStyle(
+                  fontFamily: 'Algerian',
+                  fontSize: 42,
+                  fontWeight: FontWeight.bold,
+                  color: clickclr,
+                ),
               ),
-              
               const SizedBox(
                 height: 64,
               ),
-              
               TextFieldInput(
                 hintText: 'Enter your email',
                 textInputType: TextInputType.emailAddress,
@@ -120,7 +104,6 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 24,
               ),
-              
               TextFieldInput(
                 hintText: 'Enter your password',
                 textInputType: TextInputType.text,
@@ -130,7 +113,6 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 24,
               ),
-              
               InkWell(
                 onTap: loginUser,
                 child: Container(
@@ -152,16 +134,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                 ),
               ),
-              
               const SizedBox(
                 height: 12,
               ),
-              
               Flexible(
                 flex: 2,
                 child: Container(),
               ),
-              
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

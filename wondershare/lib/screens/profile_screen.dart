@@ -10,7 +10,6 @@ import 'package:wondershare/screens/login_screen.dart';
 import 'package:wondershare/utils/colors.dart';
 import 'package:wondershare/utils/utils.dart';
 import 'package:wondershare/widgets/follow_button.dart';
-// import 'package:wondershare/widgets/follow_button.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String uid;
@@ -44,11 +43,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
           .doc(widget.uid)
           .get();
 
-      // get post lENGTH
       var postSnap = await FirebaseFirestore.instance
-           .collection('posts')
-           .where('uid', isEqualTo: widget.uid) 
-           .get();
+          .collection('posts')
+          .where('uid', isEqualTo: widget.uid)
+          .get();
 
       postLen = postSnap.docs.length;
       userData = userSnap.data()!;
@@ -78,11 +76,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         : Scaffold(
             appBar: AppBar(
               backgroundColor: mobileBackgroundColor,
-              title: Text(
-                userData['username'],
-                 style: TextStyle(color: primaryColor ,
-                 fontWeight: FontWeight.bold)
-                ),
+              title: Text(userData['username'],
+                  style: TextStyle(
+                      color: primaryColor, fontWeight: FontWeight.bold)),
               centerTitle: false,
             ),
             body: ListView(
@@ -99,7 +95,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               userData['photoUrl'],
                             ),
                             radius: 40,
-                            
                           ),
                           Expanded(
                             flex: 1,
@@ -123,8 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             widget.uid
                                         ? FollowButton(
                                             text: 'Sign Out',
-                                            backgroundColor:
-                                                appbarclr,
+                                            backgroundColor: appbarclr,
                                             textColor: primaryColor,
                                             borderColor: Colors.grey,
                                             function: () async {
@@ -178,7 +172,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                     followers++;
                                                   });
                                                 },
-                                              ) 
+                                              )
                                   ],
                                 ),
                               ],
@@ -194,9 +188,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Text(
                           userData['username'],
                           style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: primaryColor
-                          ),
+                              fontWeight: FontWeight.bold, color: primaryColor),
                         ),
                       ),
                       Container(
@@ -207,8 +199,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Text(
                           userData['bio'],
                           style: const TextStyle(
-    color: primaryColor,    // Color of the text  // Make the text bold
-  ),
+                            color: primaryColor,
+                          ),
                         ),
                       ),
                     ],
@@ -266,7 +258,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color:primaryColor,
+            color: primaryColor,
           ),
         ),
         Container(
